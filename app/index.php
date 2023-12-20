@@ -1,9 +1,10 @@
 <?php
 
-use App\controller\testeController;
+
+use App\model\User;
 
 require "../vendor/autoload.php";
 
-$teste = new testeController;
+$teste = new User;
+$teste->setUser("Vinasdasdasdasdadasdasdasds");
 
-echo $teste->getHello();
