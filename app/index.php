@@ -6,5 +6,5 @@ use App\model\User;
 require "../vendor/autoload.php";
 
 $teste = new User;
-$teste->setUser("Vinasdasdasdasdadasdasdasds");
+$teste->setUser("");
 
