@@ -1,50 +1,53 @@
 <?php
 
+
 namespace App\model;
 
+use App\db\connection;
 
-
-use App\db\Connection;
-
-class User
+class user
 {
 
-    private $connection;
+
+    private $conn;
 
     function __construct()
     {
-        $this->connection = new Connection;
+        $this->conn = new connection;
     }
 
-    function getUser()
+
+    function select()
     {
-        $sql = "SELECT * from users;";
-        return $this->connection->query($sql)->fetchAll();
+        $sql = "SELECT * FROM user";
+        return $stmt = $this->conn->query($sql)->fetchAll();
     }
 
-    function setUser($name)
+    function insert($name, $age)
     {
-        $sql = "INSERT into users(nome) values(:name)";
-
-        $stmt = $this->connection->prepare($sql);
+        $sql = "INSERT INTO user(Name,Age) values(:name,:age);";
+        $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name);
-        return  $stmt->execute();
+        $stmt->bindParam(":age", $age);
+        $stmt->execute();
     }
 
-    function deleteUser($id)
+    function update($name, $age, $id)
     {
-        $sql = "DELETE from users where id = :id";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam(":id", $id);
-        return  $stmt->execute();
-    }
-
-    function putUser($id)
-    {
-        $sql = "SELECT * FROM users where id = :id";
-        $stmt = $this->connection->prepare($sql);
+        $sql = "UPDATE user set Name = :name, Age = :age where Id = :id;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":age", $age);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
-        return $stmt->fetch();
+    }
+
+
+    function delete($id)
+    {
+        $sql = "DELETE from user where Id = :id;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
     }
 }
