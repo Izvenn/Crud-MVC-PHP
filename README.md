@@ -18,7 +18,7 @@ PHP
 ## Banco de dados
 - MySQL
 # Como executar o projeto
-Executar o projeto dentro de um servidor Apache ou utilizando o servidor embutido do PHP(PHP -S localhost:<porta-desejada> após definir as configurações das variáveis de ambiente contidas no env.ini 
+Executar o projeto dentro de um servidor Apache ou utilizando o servidor embutido do PHP(PHP -S localhost:-porta-desejada-) após definir as configurações das variáveis de ambiente contidas no env.ini 
 e inicializar o banco de dados
 
 
