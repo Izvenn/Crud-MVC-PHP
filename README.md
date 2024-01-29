@@ -10,8 +10,8 @@ Projeto básico de CRUD executando todas as operações do banco de dados utiliz
 
 # Tecnologias utilizadas
 ## Back end
-PHP 8.3
-Composer
+- PHP 8.3
+- Composer
 ## Front end
 - HTML
 - CSS
